@@ -5,30 +5,27 @@ import java.util.Map;
 
 public class Exercise23 {
 
-    public static Map<String, Person> createHashMap() {
-        Map<String, Person> map = new HashMap<>();
+    public static Map<String, Person> createHashMap() { // Almacenamiento basado en clave-valor:
+        Map<String, Person> customMap = new HashMap<>();
 
-        map.put("person", new Person("John", "Smith"));
-        map.put("teacher",new Teacher("María", "Montessori","Educación"));
-        map.put("police" ,new PoliceOfficer("Jake","Peralta","B-99"));
-        map.put("doctor", new Doctor("Gregory","House","Nefrología e infectología"));
+        customMap.put("person", new Person("John", "Smith"));
+        customMap.put("teacher",new Teacher("María", "Montessori","Educación"));
+        customMap.put("police" ,new PoliceOfficer("Jake","Peralta","B-99"));
+        customMap.put("doctor", new Doctor("Gregory","House","Nefrología e infectología"));
 
-        return map;
+        return customMap;
     }
 
     public static Person addMapValue(Map<String, Person> map, String key, Person value) {
-
-        //PoliceOfficer Police2 = new PoliceOfficer("Charles","Boyle","B-99");
-        // map.put("police",new PoliceOfficer("Charles","Boyle","B-99"));
-        map.put(key, value);
-        return value;
+        return map.get(key);
     }
+
 
     public static void printMapValues(Map<String, Person> map) {
         for (Map.Entry<String, Person> entry : map.entrySet()) {
-            System.out.println( "Clave: " + entry.getKey());
+            System.out.println(entry.getKey() + ": ");
             entry.getValue().getDetails();
-            System.out.println();
+
         }
     }
 
